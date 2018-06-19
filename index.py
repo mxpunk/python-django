@@ -22,7 +22,7 @@ else:
       if os.getenv("QUERY_STRING") in ('Android'):
         personis = 'Second programmer name <DOMAIN\\ADNameFirstProgrammer>'
       if os.getenv("QUERY_STRING") in ('iOS'):
-        personis = 'Second programmer name <DOMAIN\\SecondProgrammer>'
+        personis = 'Second programmer name <DOMAIN\\ADNameSecondProgrammer>'
       uploadjson = [
           {
             'op': 'add',
