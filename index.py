@@ -16,13 +16,13 @@ else:
       sys.stdout.write("\n")
       sys.stdout.write("Work")
       headers={'content-type': 'application/json-patch+json'}
-      urlget = 'https://tfs.sbr.local/tfs/DefaultCollection/Messenger/_apis/work/teamsettings/iterations?$timeframe=current&api-version=v2.0-preview'
-      getres = requests.get(urlget,headers=headers,auth=HttpNtlmAuth('sbr\\fabric','1@Af,hbrf$TfS$09www'),verify=False).json()
+      urlget = 'https://tfs.domain.local/tfs/DefaultCollection/Messenger/_apis/work/teamsettings/iterations?$timeframe=current&api-version=v2.0-preview'
+      getres = requests.get(urlget,headers=headers,auth=HttpNtlmAuth('domain\\ADuserfabric','password'),verify=False).json()
       url = 'https://tfs.sbr.local/tfs/DefaultCollection/Messenger/_apis/wit/workitems/$Bug?api-version=2.0'
       if os.getenv("QUERY_STRING") in ('Android'):
-        personis = 'Лаухин Иван Андреевич <SBR\\lauhinia>'
+        personis = 'Second programmer name <DOMAIN\\ADNameFirstProgrammer>'
       if os.getenv("QUERY_STRING") in ('iOS'):
-        personis = 'Ишутин Виталий Юрьевич <SBR\\IshutinVY>'
+        personis = 'Second programmer name <DOMAIN\\SecondProgrammer>'
       uploadjson = [
           {
             'op': 'add',
@@ -86,4 +86,4 @@ else:
             'value': myjson['payload']['title']
           }
           ]
-    res = requests.patch(url,json=uploadjson,headers=headers,auth=HttpNtlmAuth('sbr\\fabric','1@Af,hbrf$TfS$09www'),verify=False)
+    res = requests.patch(url,json=uploadjson,headers=headers,auth=HttpNtlmAuth('domain\\ADuserfabric','password'),verify=False)
